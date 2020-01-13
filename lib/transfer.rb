@@ -15,5 +15,9 @@ class Transfer
     if @sender.valid? == false || @status = "complete"
       "Transaction rejected. Please check your account balance."
     else
-      sender.deposit(-)
+      sender.deposit(-amount)
+      receiver.deposit(amount)
+      @status = "complete"
+    end
+  end
 end
